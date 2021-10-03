@@ -3,21 +3,61 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.015714124056659617 -0.9094524020428715 -0.41551100433512406 3.225015264263893
-  position 0.08387067744008966 1.2982325925748965 -1.254330651298315
+  orientation 0.5402858059074283 -0.6721989265485938 -0.5062013937968551 4.39837335680026
+  position 0.825478006677394 4.151515183020486 -0.10292837374334227
 }
 TexturedBackground {
+  texture "factory"
 }
 TexturedBackgroundLight {
 }
-RectangleArena {
-  floorSize 0.254 1.524
+DEF area RectangleArena {
+  translation -0.257628 -4.44089e-16 -0.192172
+  floorSize 1.524 1.524
   floorTileSize 0.508 0.508
+  wallHeight 0.5
+  wallAppearance BrushedAluminium {
+    colorOverride 0.4 0.4 0.4
+  }
+}
+DEF YellowCylinder Solid {
+  translation -0.802898 0.25 0.400368
+  rotation -0.3523179728712296 0.9282159420255688 0.11952912181344691 -1.01101796531704e-15
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.508
+        radius 0.1016
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject DEF landmark Shape {
+    appearance PBRAppearance {
+      baseColor 0 1 1
+      roughness 1
+      metalness 0
+    }
+    geometry Cylinder {
+      height 0.3
+      radius 0.045
+    }
+  }
+  physics DEF landmarkPH Physics {
+  }
+  recognitionColors [
+    1 1 0
+  ]
 }
 DEF epuck E-puck {
-  translation 0 0 0.508
+  translation -0.240763 0 -0.329623
   rotation -0.6979647042481143 -0.030090787249488382 -0.715499696817929 0.0005653071795675667
-  controller "lab2_task1"
+  controller "lab2_task2"
   supervisor TRUE
   camera_width 50
   turretSlot [
@@ -41,7 +81,7 @@ DEF epuck E-puck {
       ]
       endPoint Solid {
         translation 0.04500995778380096 0.025013380758883635 -2.4671929852070174e-05
-        rotation 0.9999993203499804 0.0010052734270078172 -0.0005905293508524928 4.6368371220546685
+        rotation 0.9999993203499804 0.0010052734270078168 -0.0005905293508524927 4.6368371220546685
         children [
           DEF WHEEL Transform {
             translation -0.007 0.01 -0.05
